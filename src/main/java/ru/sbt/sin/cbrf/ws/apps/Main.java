@@ -4,7 +4,7 @@ import ru.sbt.sin.cbrf.ws.services.CbrfService;
 import ru.sbt.sin.cbrf.ws.entities.ValuteCursOnDate;
 
 import java.sql.Date;
-import java.util.Map;
+import java.util.List;
 
 /**
  * Service work test
@@ -13,10 +13,10 @@ import java.util.Map;
 public class Main {
     private static CbrfService cbrfService = new CbrfService();
     public static void main(String[] args) {
-        Date date = Date.valueOf("2016-10-2");
-        Map<Long,ValuteCursOnDate> cursMap = cbrfService.getCursMapOnDate(date);
+        Date date = Date.valueOf("2000-10-09");
+        List<ValuteCursOnDate> curses = cbrfService.getCursListOnDate(date);
         System.out.println("Curs on date "+date);
-        for(ValuteCursOnDate valuteCursOnDate : cursMap.values()){
+        for(ValuteCursOnDate valuteCursOnDate : curses){
             System.out.println( " "+valuteCursOnDate.getName()+" costs "+ valuteCursOnDate.getCurs()+" "+valuteCursOnDate.getChCode());
         }
     }

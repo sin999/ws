@@ -10,20 +10,20 @@ import ru.sbt.sin.cbrf.ws.entities.ValuteData;
 import javax.xml.datatype.XMLGregorianCalendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
-import java.util.Map;
+import java.util.List;
 
 /**
+ * Cbrf data access service
  * Created by 1 on 09.10.2016.
  */
 public class CbrfService {
-    DailyInfo service = new DailyInfo();
-    DailyInfoSoap port = service.getDailyInfoSoap();
+    private DailyInfo service = new DailyInfo();
+    private DailyInfoSoap port = service.getDailyInfoSoap();
 
 
-    public Map<Long,ValuteCursOnDate> getCursMapOnDate(Date date){
+    public List<ValuteCursOnDate> getCursListOnDate(Date date){
         GregorianCalendar gregorianCalendar = new GregorianCalendar();
         gregorianCalendar.setTimeInMillis(date.getTime());
-//        GregorianCalendar gregorianCalendar = new GregorianCalendar(2016,8,1);
         XMLGregorianCalendar onDate = new XMLGregorianCalendarImpl(gregorianCalendar);
         ElementNSImpl elementNS = (ElementNSImpl)port.getCursOnDate(onDate).getAny();
         return new ValuteData(elementNS.getFirstChild());

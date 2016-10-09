@@ -8,7 +8,7 @@ import org.w3c.dom.NodeList;
  * Created by 1 on 09.10.2016.
  */
 public class ValuteCursOnDate {
-    public static final String rootElement ="ValuteCursOnDate";
+    public static final String ELEMENT_NAME ="ValuteCursOnDate";
 // <ValuteCursOnDate diffgr:id="ValuteCursOnDate1" msdata:rowOrder="0">
 //    <Vname>Австралийский доллар</Vname>
 //    <Vnom>1</Vnom>
@@ -17,7 +17,7 @@ public class ValuteCursOnDate {
 //    <VchCode>AUD</VchCode>
 // </ValuteCursOnDate>
     public ValuteCursOnDate(Node node){
-        if(rootElement.equals(node.getNodeName())){
+        if(ELEMENT_NAME.equals(node.getNodeName())){
             NodeList nodeList = node.getChildNodes();
             for(int ind = 0 ; ind<nodeList.getLength() ; ind++){
                 fill(nodeList.item(ind));
