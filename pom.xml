@@ -36,19 +36,20 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <!--<args>-->
-                        <!--<arg>-b</arg><arg>http://www.w3.org/2001/XMLSchema.xsd</arg>-->
-                    <!--</args>-->
-                    <!--<bindingDirectory>${basedir}</bindingDirectory>-->
+                    <args>
+                        <arg>-b</arg><arg>http://www.w3.org/2001/XMLSchema.xsd</arg>
+                    </args>
+                    <!-- CHANGE: added bindingFiles tag to bind XJB customization, located at the default binding files directory, MyProject/src/jaxws/xsd.xjb . -->
                     <!--<bindingFiles>-->
-                        <!--<bindingFile>customization.xjb</bindingFile>-->
+                        <!--&lt;!&ndash;<bindingFile>customization.xjb</bindingFile>&ndash;&gt;-->
+                        <!--<bindingFile>xsd.xjb</bindingFile>-->
                     <!--</bindingFiles>-->
                     <sourceDestDir>target/generated-sources/jaxws</sourceDestDir>
                     <packageName>com.blogspot.nikcode.jaxws.generated</packageName>
                     <keep>true</keep>
                     <wsdlUrls>
-                        <wsdlUrl>${basedir}/wsdl/DailyInfo.wsdl</wsdlUrl>
-                        <!--<wsdlUrl>http://www.cbr.ru/DailyInfoWebServ/DailyInfo.asmx?WSDL</wsdlUrl>-->
+                        <!--<wsdlUrl>${basedir}/wsdl/DailyInfo.wsdl</wsdlUrl>-->
+                        <wsdlUrl>http://www.cbr.ru/DailyInfoWebServ/DailyInfo.asmx?WSDL</wsdlUrl>
                     </wsdlUrls>
                     <vmArgs>
                         <vmArg>-Djavax.xml.accessExternalDTD=all</vmArg>
